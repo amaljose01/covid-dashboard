@@ -1,25 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import Dashboard from './scenes/Dashboard';
+import Header from './scenes/Header';
+import Wrapper from './scenes/Wrapper';
+
+import { useTheme } from './contexts/ThemeContext';
+
 import './App.css';
 
 function App() {
+  const themeState = useTheme();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper themeState={themeState}>
+      <div>
+        <Header />
+        <Dashboard />
+      </div>
+    </Wrapper>
   );
 }
 
